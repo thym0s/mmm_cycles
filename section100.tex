@@ -1,0 +1,166 @@
+All (co-)homology groups are understood with rational coefficients.
+
+\subsection{Surface bundles, stratification}
+Let $\pi_E : E \rightarrow B$ be an orientable surface bundle
+with constant fibre genus g over an orientable closed manifold $B$
+of even dimension $2n$, $J$ a fibrewise almost complex structure
+compatible with the fibre orientation
+and $\omega$ a fibrewise complex cotangent field holomorphic
+with respect to $J$.
+
+\begin{defn}
+We say that $\omega$ as above is \emph{completely transversal},
+if for every point $p \in B$ there is the following data:
+\begin{itemize}
+  \item An open set $U$ containing $p$,
+  \item local coordinates $w=(w_1, \ldots , w_n) : U \rightarrow \mathbb{C}^n$,
+        with $w(p) = 0$,
+  \item disjoint open subsets $V_1, \ldots, V_k$ of $\pi_E^{-1}(U)$ covering all
+        zeroes of $\omega$
+  \item fibre coordinates $z_l : V_l \to \mathbb{C}$, such that
+        on $V_l$,
+        $$\omega = z^{n_l} + w_{n_l-2,l} z^{n_l-2} + \ldots + w_{0,l}$$
+        (where $w_{i,j}$ is a renumbering of a subset of the $w_i$).
+\end{itemize}
+\end{defn}
+
+From now on we assume $\omega$ to be completely transversal.
+
+\noindent \textbf{Notation}.
+$\mathcal{E}$ is the $(2g-2)$-fold fibre product of $E$ over $B$. \\
+For $I$ a partition, i.e. a quotient, of $\{1, \ldots, 2g-2\}$, let
+$\mathcal{E}(I)$ be the subset of $\mathcal{E}$ where $x_i = x_j$ whenever
+$i,j$ are identified in $I$. \\
+Let $\mathcal{F}$ be the closure $\mathcal{E}$ of the set
+$$\{ ( x_1 , \ldots , x_{2g-2} ) \in \mathcal{E} \vert \forall\
+i\neq j: x_i \neq x_j \textrm{ and } \omega(x_i) = 0 \} .$$ 
+
+\begin{prop} $\mathcal{F}$ is a closed submanifold of $\mathcal{E}$ that
+intersects all $\mathcal{E}(I)$ transversally.
+\end{prop}
+\begin{proof}
+This can be checked in local coordinates: For $z_i$ approaching a
+multiple zero of $\omega$, $\mathcal{F}$ is given by the equations
+that equal $w_{i,j}$ to the elementary symmetric polynomials in
+the corresponding $z_i$, and the sum of them has to equal $0$.
+Thus $\mathcal{F}$ is a submanifold by the implicit function theorem.
+
+The second claim also follows from a similar argument.
+\end{proof}
+
+We set $\mathcal{F}(I) = \mathcal{F} \cap \mathcal{E}(I)$.
+They define the closed strata of a stratification of $\mathcal{F}$.
+The canonical projection from $\mathcal{F}$ to $B$ will be denoted
+by $\pi$. Note that $\mathcal{F}$ and $B$ have equal dimension.
+In a certain sense, $\mathcal{F}$ is a $(2g-2)$-fold branched cover
+of $B$, where the branching happens along the $\mathcal{F}(I)$.
+
+\begin{defn}
+For a partition $I$, we define the small stabilizer as the group of all
+elements $g$ of the symmetric group, such that $g(x) \sim_I x$,
+and the big stabilizer via the condition
+$x \sim_I y \Leftrightarrow g(x) \sim_I g(y)$.
+
+The order of the small stabilizer is denoted by $e(I)$ and the
+order of the big stabilizer is $e(I)f(I)$.
+\end{defn}
+
+The big stabilizer is the normalizer of the small stabilizer.
+
+The image of $\mathcal{F}(I)$ under $\pi$ only depends on the
+orbit $[I]$ of $I$ under the symmetric group. It will be
+denoted by $B([I])$. Note that this might not be a submanifold.
+However, the homology class $f(I)[B([I])]$ is well-defined as
+the image of $[\mathcal{F}(I)]$.
+
+\subsection{Jet bundles}
+The form $\omega$ is a section of the fibrewise cotangent bundle,
+which we will denote as $K$. Via fibrewise jet prolongation,
+it also defines a section $J_k(\omega)$ in the $k$-fold
+fibrewise holomorphic Jet bundle $J_k(K)$, which, as a bundle, is isomorphic to
+$K \oplus ( K \otimes K ) \oplus \cdots \oplus ( K \otimes K^{\otimes k} )$.
+
+Let $E_k$ denote the locus of the $k$-fold zeroes of $\omega$ on $E$,
+$[E_k]$ its homology class, and $[B_k]$ the image in the homology of $B$.
+
+Note that $[B_k] = [B(\{\{1,\ldots,k\},\{k+1\},\ldots,\{2g-2\}\})]$
+in the previous notation.
+
+\begin{prop}
+$[E_k]$ is dual to $k! \cdot c_1(K)^k$.
+\end{prop}
+\begin{proof}
+$E_k$ is the vanishing locus of the section $J_{k-1}(\omega)$.
+\end{proof}
+
+Hence, $[B_{k+1}]$ is dual to $(k+1)! \cdot \kappa_k$.
+
+\subsection{Wrong way map, intersections}
+
+The wrong-way map $\pi^! : H_\bullet(B) \rightarrow H_\bullet(\mathcal{F})$ can be 
+described explicitly on the branching strata:
+
+\begin{prop}
+$\pi^!([B([I])]) = f([I]) \sum_{J \in [I]} \mathcal{F}(J) $
+\end{prop}
+
+As the dual of the natural homology map, $\pi^!$ respects the intersection
+product on homology. Consequently, to compute the intersection products
+in the homology of $B$, we can ease the computation by first pulling back
+to $\mathcal{F}$. Note that $\pi_\bullet \circ \pi^!$ is multiplication with
+$(2g-2)$, so that $\pi^!$ is guaranteed to be injective.
+
+To begin with, we observe the following general fact: If $A,B \subset C \subset D$
+are closed (sub-)manifolds, and $A,B$ intersect transverally in $C$,
+$$[A] \cap [B] = [C] \cap ( [A] \cap_C [B] ).$$
+
+This formula will allow an inductive computation of the intersections of the
+strata $\mathcal{F}(I)$.
+
+We want to compute the intersection of strata of the form $\mathcal{F}(I)$
+and $\mathcal{F}(J)$, that means, we want to express it in term of other strata.
+
+\noindent \textbf{ The computation, step 1.}
+If $I = \{I_1,\ldots,I_k\}$, then $\mathcal{F}(I)$ is the transversal
+intersection of the $\mathcal{F}(\{I_i,\ldots\})$, where only the elements
+of $I_i$ are identified. So we can assume that $I$ and $J$
+have only one nontrivial element.
+
+\noindent \textbf{ The computation, step 2.}
+We assume now that $I=\{I_1,\ldots\}$ and $J=\{J_1,\ldots\}$, where
+$I_1$ and $J_1$ are the only equivalence class with more that one element.
+Set $I\wedge J = \{ I_1 \cap I_2 , \ldots \}$ and
+$I \vee J  = \{ I_1 \cup I_2 , \ldots \}$.
+Then
+\begin{align}
+  [\mathcal{F}(I)] \cap [\mathcal{F}(J)] 
+    & = [\mathcal{F}(I \wedge J )] \cap 
+       ( [\mathcal{F}(I)] \cap_{\mathcal{F}(I\wedge J)} [\mathcal{F}(J)] ) \\
+    & = [\mathcal{F}(I \wedge J )] \cap [\mathcal{F}(I \vee J)] 
+\end{align}
+
+\noindent \textbf{ The computation, step 3.}
+From now on, we assume in addition that $J$ is a quotient of $I$, so that
+$\mathcal{F}(I) \supset \mathcal{F}(J)$. Without loss of generality,
+$I_1 = \{ 1 , \ldots , l \}$ and $J_1 = \{ 1 , \ldots , m \}$.
+We now want to inductively increase the dimension of $\mathcal{F}(I)$.
+
+So set $\hat{I} = \{ \hat{I}_1 , \ldots \}$
+with $\hat{I}_1 = \{ 1 , \ldots , l-1\}$.
+
+The conormal bundle of $\mathcal{F}(I)$ in $\mathcal{F}(\hat{I})$ is
+isomorphic to $K$ pulled back over the marked multiple zero.
+Over $\mathcal{F}(J)$, the $m$-jet of $\omega$ gives a section of
+$K \otimes K^{\otimes m}$, which vanishes exactly at zeroes of higher order.
+
+This means:
+
+\begin{align}
+  [\mathcal{F}(I)] \cap [\mathcal{F}(J)]
+   & = [\mathcal{F}(\hat{I})] \cap 
+      ( [\mathcal{F}(I)] \cap_{\mathcal{F}(\hat{I})} [\mathcal{F}(J)] ) \\
+   & = [\mathcal{F}(\hat{I})] \cap
+      ( - \frac{1}{m+1} \sum_{i=m+1}^{2g-2}
+              \mathcal{F}(\{ J_1 \cup \{ i \} , \ldots \} )
+\end{align}
+
